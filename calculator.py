@@ -26,22 +26,19 @@ def calc_salary(salary):
 
 if __name__ == '__main__':
 	arg_dict = {}
-	i = 1
-	if len(sys.argv) < 2:
-		print("Parameter Error")
-		exit()
-	for arg in sys.argv:
+	#if len(sys.argv) < 2:
+		#print("Parameter Error")
+		#exit()
+	for arg in sys.argv[1:]:
 		try:
-			if i != 1:
-				arg_list = arg.split(':')
-				arg_dict[arg_list[0]] = int(arg_list[1])
-			i += 1;
+			arg_list = arg.split(':')
+			arg_dict[arg_list[0]] = int(arg_list[1])
 			#print(arg_dict)
 		except:
 			print("Parameter Error")
 			exit() 
 	
 	for key,value in arg_dict.items():
-		print(key,calc_salary(value))
+		print(key,':',calc_salary(value),sep = '')
 		
 	exit()
